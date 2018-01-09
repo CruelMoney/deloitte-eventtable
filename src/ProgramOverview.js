@@ -9,8 +9,9 @@ class Event extends Component {
       type,
       name,
       start_time,
-      end_time
-    } = this.props.event;
+      end_time,
+      hidden
+    } = this.props;
 
     const timeString = datesToIntervalString(start_time, end_time);
     const duration = end_time - start_time;
@@ -20,7 +21,7 @@ class Event extends Component {
       style={{
         height:msToEms(duration)+"em"
       }}
-      className={"event-thumbnail " + scene + " " + type}>
+      className={"event-thumbnail " + scene + " " + type + (hidden ? " hidden" : "")}>
           <p className="event-time">{timeString}</p>
           <h4>{name}</h4>
       </div>
@@ -78,8 +79,8 @@ class ProgramRow extends Component {
             key={"event-"+idx}
             className={"thumbnail-wrapper " + e.scene}
             >
-            <Event
-              event={e}
+            <Event  
+            {...e}
             />
           </div>
         )
@@ -90,15 +91,95 @@ class ProgramRow extends Component {
   }
 } 
 
-class ProgramOverview extends Component {
+
+class Filters extends Component {
+
+  state={
+    checked : []
+  }
+
+  onChange = (val, e) => {
+    let newState = [];
+    if(e.target.checked){
+      newState = [...this.state.checked, val];
+    }else{
+      newState = this.state.checked.filter(v => v !== val);
+    }
+    this.props.onChange && this.props.onChange(newState);
+    this.setState({
+      checked : newState 
+    })
+  }
+
   render() {
+    const { options, name } = this.props;
+
+    return (
+      <ul className="filters">
+        {options.map((o, idx)=>{
+          return(
+            <li key={name+"-option-"+idx}>
+              <input 
+                id={o+"-"+idx} 
+                onChange={(e)=>this.onChange(o, e)}
+                name={name+"-"+idx} 
+                type="checkbox" >
+              </input>
+              <label htmlFor={o+"-"+idx}>{o}</label>
+            </li>
+          );
+        })}
+      </ul>
+    );
+  }
+}
+
+
+class ProgramOverview extends Component {
+  state = {
+    rows: [],
+    events : [],
+    filters: {}
+  }
+
+  filterChange = (name, val) => {
+    this.setState({
+      filters: {
+        ...this.state.filters,
+        [name] : val
+      }
+    });
+  }
+
+  componentWillMount(){
     const events = parseEvents(mock_events);
-    const categories = mapToUnique(events, "categories");
     const rows = eventsToTimeTable(events);
+
+    this.setState({
+      rows: rows,
+      events: events
+    });
+  }
+
+
+  render() {
+    const { rows, events, filters } = this.state;
+    const filterAttr1 = "categories";
+    const categories = mapToUnique(events, filterAttr1);
+
+    const filteredRows = filterRows(rows, filters);
 
     return (
       <div className="program-overview">
-        {rows.map((r, idx)=>{
+        <div>
+          <Filters 
+            onChange={(val)=>{this.filterChange(filterAttr1, val)}}
+            name={filterAttr1}
+            options={categories}
+          />
+        </div>
+
+        {filteredRows.map((r, idx)=>{
           return (
             <ProgramRow 
               key={"ProgramRow-"+idx}
@@ -109,8 +190,40 @@ class ProgramOverview extends Component {
       </div>
     );
   }
+};
+
+const filterEvents = (events, filters) => {
+  return events.map( event => {
+    
+    return Object.keys(filters).reduce((event, attribute) => {
+      if (event.hidden) return event;
+      const filterValues = filters[attribute];
+      const haveCommonValues = filterValues.some(v1 => event[attribute].indexOf(v1) !== -1);
+      const hide = !haveCommonValues && filterValues.length > 0;
+
+      return {
+        ...event,
+        hidden : hide
+      }
+
+    }, event);
+  });
 }
 
+const filterRows = (rows, filters) => {
+  return rows.map(row => {
+    if (row.break) return row
+
+    const filteredEvents = filterEvents(row.events, filters);
+    const collapseRow = filteredEvents.every(e => e.hidden);
+
+    return {
+      ...row,
+      collapse: collapseRow,
+      events: filteredEvents
+    }
+  });
+}
 
 const sortEventsByStart = (events) => {
   return  [...events].sort((a,b)=>{
@@ -144,7 +257,7 @@ const eventFitsInRow = (rows, event) => {
 // each row consists of all the events that overlap within that row
 // breaks are automatically added as seperate rows between rows with events
 const eventsToTimeTable = (events) => {
-  let last_start_time, last_end_time;
+  let last_end_time;
   const sortedEvents = sortEventsByStart(events);
   const rows = [];
 
@@ -154,7 +267,6 @@ const eventsToTimeTable = (events) => {
 
     // Create break if necessary
     if(!!last_end_time && start_time > last_end_time){
-      const breakKey = datesToIntervalKey(last_end_time, start_time);
       const timeBreak = {
           start_time: last_end_time,
           end_time: start_time,  
@@ -194,9 +306,6 @@ const getFullHours = (d) => addLeadingZero(d.getHours());
 
 const datesToIntervalString = (d1, d2) => {
   return `${getFullHours(d1)}:${getFullMinutes(d1)}-${getFullHours(d2)}:${getFullMinutes(d2)}`;
-}
-const datesToIntervalKey = (d1, d2) => {
-  return `${getFullHours(d1)}${getFullMinutes(d1)}`;
 }
 
 const parseEvents = (events) => {

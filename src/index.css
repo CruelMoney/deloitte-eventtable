@@ -30,6 +30,9 @@ body {
   padding: 0.5em;
   box-sizing: border-box;
 }
+.event-thumbnail.hidden{
+ display: none;
+}
 
 .event-thumbnail h4,
 .event-thumbnail p{
@@ -84,4 +87,86 @@ body {
 .workshop .event-thumbnail{
   background-color: transparent;
   border: 1px dashed #979797;
+}
+
+
+
+
+ul.filters{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+ul.filters li{
+  display: inline-block;
+  margin: 2em;
+}
+
+
+
+
+/* CHECKBOX STYLING */
+/* Base for label styling */
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px;
+}
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 1.95em;
+  cursor: pointer;
+  padding-top: 0.25em;
+  height: 1.6em;
+  line-height: 1.6em;
+  vertical-align: middle;
+}
+
+/* checkbox aspect */
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0;
+  width: 1.25em; height: 1.25em;
+  border: 1px solid #979797;
+  background: #fff;
+}
+/* checked mark aspect */
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+  content: "";
+  width: 0.6em;
+  height: 1.2em;
+  position: absolute;
+  top: -0.4em;
+  border: 3px solid #86bc25;
+  border-left: none;
+  border-top: none;
+  left: 0.5em;
+  transform: rotate(45deg);
+  opacity: 0;
+}
+/* checked mark aspect changes */
+[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+}
+[type="checkbox"]:checked + label:after {
+  opacity: 1;
+}
+/* disabled checkbox */
+[type="checkbox"]:disabled:not(:checked) + label:before,
+[type="checkbox"]:disabled:checked + label:before {
+  border-color: #bbb;
+  background-color: #ddd;
+}
+[type="checkbox"]:disabled:checked + label:after {
+  color: #999;
+}
+[type="checkbox"]:disabled + label {
+  color: #aaa;
 }
