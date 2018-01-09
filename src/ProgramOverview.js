@@ -53,8 +53,17 @@ class ProgramBreak extends Component {
 
 class ProgramRow extends Component {
   render(){
-    const { events, start_time, end_time } = this.props; 
+    const { 
+      events, 
+      start_time, 
+      end_time, 
+      collapse,
+      bottom_time,
+      top_time
+     } = this.props; 
     const isBreak = !events;
+    
+    // Calculating side hour
     const medianDate = getMedianDate(start_time, end_time);
     medianDate.setMinutes(0,0,0);
     const sideHourOffset = msToEms(medianDate - start_time);
@@ -62,14 +71,31 @@ class ProgramRow extends Component {
     const hideSideHour = medianDate.getTime() === end_time.getTime();
 
     return(
-      <div className="program-row">
+      <div className={
+        "program-row " + (collapse ? "collapsed" : "")
+        + (bottom_time ? " bottom-time " : "")
+        + (top_time ? " top-time " : "")}>
+       {top_time ?
+         <div  
+         style={{top: 0 }}
+         className="side-hour top-time">
+           {addLeadingZero(start_time.getHours()) + ':' + addLeadingZero(start_time.getMinutes())}
+         </div>
+      : null}
       <div 
       style={{
         top: sideHourOffset+'em'
       }}
-      className="side-hour">
-        {hideSideHour ? "" : sideHour}
+      className="side-hour middle-time">
+        {hideSideHour ? "" : sideHour+":00"}
       </div>
+      {bottom_time ?
+         <div  
+         style={{bottom: 0 }}
+         className="side-hour bottom-time">
+           {addLeadingZero(end_time.getHours()) + ':' + addLeadingZero(end_time.getMinutes())}
+         </div>
+      : null}
       {isBreak ? 
       <ProgramBreak start_time={start_time} end_time={end_time} />
       :
@@ -166,8 +192,12 @@ class ProgramOverview extends Component {
     const { rows, events, filters } = this.state;
     const filterAttr1 = "categories";
     const categories = mapToUnique(events, filterAttr1);
+    const filterAttr2 = "row";
+    const rowFilters = mapToUnique(events, filterAttr2);
 
-    const filteredRows = filterRows(rows, filters);
+    let renderRows =  filterRows(rows, filters);
+    renderRows = collapseBreaks(renderRows);
+    renderRows = calculateExtraTimes(renderRows);
 
     return (
       <div className="program-overview">
@@ -179,7 +209,15 @@ class ProgramOverview extends Component {
           />
         </div>
 
-        {filteredRows.map((r, idx)=>{
+        <div>
+          <Filters 
+            onChange={(val)=>{this.filterChange(filterAttr2, val)}}
+            name={filterAttr2}
+            options={rowFilters}
+          />
+        </div>
+
+        {renderRows.map((r, idx)=>{
           return (
             <ProgramRow 
               key={"ProgramRow-"+idx}
@@ -210,8 +248,8 @@ const filterEvents = (events, filters) => {
   });
 }
 
-const filterRows = (rows, filters) => {
-  return rows.map(row => {
+const filterRows = (rows, filters) => { 
+  const filteredRows = rows.map(row => {
     if (row.break) return row
 
     const filteredEvents = filterEvents(row.events, filters);
@@ -223,6 +261,53 @@ const filterRows = (rows, filters) => {
       events: filteredEvents
     }
   });
+
+  return filteredRows;
+}
+
+// Collaps break blocks on each side of collapsed eventrows
+const collapseBreaks = (rows) => {
+  const maxIdx = rows.length - 1;
+
+  rows.forEach((row, idx)=>{
+    if(row.break){
+      if(idx+1 <= maxIdx && !rows[idx+1].break && rows[idx+1].collapse){
+        row.collapse = true;
+        return;
+      }
+      if(idx-1 >= 0 && !rows[idx-1].break && rows[idx-1].collapse){
+        row.collapse = true;
+        return;
+      }
+      row.collapse = false
+    }
+  });
+
+  return rows;
+}
+
+// Figure out if extra time should be shown
+const calculateExtraTimes = (rows) => {
+  const maxIdx = rows.length - 1;
+
+  rows.forEach((row, idx)=>{
+    if(!row.break){
+      // If row below is collapsed
+      if(idx+1 <= maxIdx && rows[idx+1].collapse){
+        row.bottom_time = true;
+      }else{
+        row.bottom_time = false;
+      }
+      // if row above is collapsed
+      if(idx-1 >= 0 && rows[idx-1].collapse){
+        row.top_time = true;
+      }else{
+        row.top_time = false;
+      }
+    }
+  });
+
+  return rows;
 }
 
 const sortEventsByStart = (events) => {

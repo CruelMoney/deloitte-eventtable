@@ -4,6 +4,7 @@ export default [
     speaker: "/",
     speaker_name: "Susanne Mørch Kock",
     categories: ["cat 1"],
+    row: ["1"],
     level_icon: "wifi.svg",
     scene: "scene-1",
     type: "speak",
@@ -12,6 +13,7 @@ export default [
     end_time: "Fri Jan 05 2018 09:15:00 GMT+0800 (+08)"
   },
   {
+    row: ["2"],
     name: "Event 2",
     speaker: "/",
     speaker_name: "Mads Kaagaard",
@@ -24,6 +26,7 @@ export default [
     end_time: "Fri Jan 05 2018 10:00:00 GMT+0800 (+08)"
   },
   {
+    row: ["3"],
     name: "Event 3",
     speaker: "/",
     speaker_name: "Mads Kaagaard",
@@ -36,6 +39,7 @@ export default [
     end_time: "Fri Jan 05 2018 10:45:00 GMT+0800 (+08)"
   },
   {
+    row: ["3"],
     name: "Event 4",
     speaker: "/",
     speaker_name: "Mads Kaagaard",
@@ -49,6 +53,7 @@ export default [
   }, {
     name: "Event 5",
     speaker: "/",
+     row: ["3"],
     speaker_name: "Mads Kaagaard",
     categories: ["cat 1", "cat 2"],
     level_icon: "wifi.svg",
@@ -60,6 +65,7 @@ export default [
   }, {
     name: "Event 6",
     speaker: "/",
+     row: ["3"],
     speaker_name: "Mads Kaagaard",
     categories: ["cat 1", "cat 2"],
     level_icon: "wifi.svg",
@@ -71,6 +77,7 @@ export default [
   }, {
     name: "Event 7",
     speaker: "/",
+     row: ["3"],
     speaker_name: "Mads Kaagaard",
     categories: ["cat 1", "cat 2"],
     level_icon: "wifi.svg",
@@ -86,6 +93,7 @@ export default [
   {
     name: "Event 8",
     speaker: "/",
+     row: ["4"],
     speaker_name: "Mads Kaagaard",
     categories: ["cat 1", "cat 2"],
     level_icon: "wifi.svg",
@@ -98,6 +106,7 @@ export default [
   {
     name: "Event 9",
     speaker: "/",
+     row: ["4"],
     speaker_name: "Mads Kaagaard",
     categories: ["cat 1", "cat 2"],
     level_icon: "wifi.svg",
@@ -109,6 +118,7 @@ export default [
   }, {
     name: "Event 10",
     speaker: "/",
+     row: ["4"],
     speaker_name: "Mads Kaagaard",
     categories: ["cat 1", "cat 2"],
     level_icon: "wifi.svg",
@@ -120,6 +130,7 @@ export default [
   }, {
     name: "Event 11",
     speaker: "/",
+     row: ["4"],
     speaker_name: "Mads Kaagaard",
     categories: ["cat 1", "cat 2"],
     level_icon: "wifi.svg",
@@ -131,6 +142,7 @@ export default [
   }, {
     name: "Event 12",
     speaker: "/",
+     row: ["4"],
     speaker_name: "Mads Kaagaard",
     categories: ["cat 1", "cat 2"],
     level_icon: "wifi.svg",
@@ -146,6 +158,7 @@ export default [
   {
     name: "Event 13",
     speaker: "/",
+     row: ["4.5"],
     speaker_name: "Mads Kaagaard",
     categories: ["cat 1", "cat 2"],
     level_icon: "wifi.svg",
@@ -158,6 +171,7 @@ export default [
   {
     name: "Event 14",
     speaker: "/",
+     row: ["4.5"],
     speaker_name: "Mads Kaagaard",
     categories: ["cat 1", "cat 2"],
     level_icon: "wifi.svg",
@@ -169,6 +183,7 @@ export default [
   }, {
     name: "Event 15",
     speaker: "/",
+     row: ["4.5"],
     speaker_name: "Mads Kaagaard",
     categories: ["cat 1", "cat 2"],
     level_icon: "wifi.svg",
@@ -180,6 +195,7 @@ export default [
   }, {
     name: "Event 16",
     speaker: "/",
+     row: ["4.5"],
     speaker_name: "Mads Kaagaard",
     categories: ["cat 1", "cat 2"],
     level_icon: "wifi.svg",
@@ -191,6 +207,7 @@ export default [
   }, {
     name: "Event 17",
     speaker: "/",
+     row: ["4.5"],
     speaker_name: "Mads Kaagaard",
     categories: ["cat 1", "cat 2"],
     level_icon: "wifi.svg",
@@ -206,6 +223,7 @@ export default [
   {
     name: "Event 18",
     speaker: "/",
+     row: ["5"],
     speaker_name: "Mads Kaagaard",
     categories: ["cat 1", "cat 2"],
     level_icon: "wifi.svg",
@@ -222,6 +240,7 @@ export default [
   {
     name: "Event 19",
     speaker: "/",
+     row: ["6"],
     speaker_name: "Mads Kaagaard",
     categories: ["cat 1", "cat 2"],
     level_icon: "wifi.svg",
@@ -234,6 +253,7 @@ export default [
   {
     name: "Event 20",
     speaker: "/",
+     row: ["6"],
     speaker_name: "Mads Kaagaard",
     categories: ["cat 1", "cat 2"],
     level_icon: "wifi.svg",
@@ -245,6 +265,7 @@ export default [
   }, {
     name: "Event 21",
     speaker: "/",
+     row: ["6"],
     speaker_name: "Mads Kaagaard",
     categories: ["cat 1", "cat 2"],
     level_icon: "wifi.svg",
@@ -256,6 +277,7 @@ export default [
   }, {
     name: "Event 22",
     speaker: "/",
+     row: ["6"],
     speaker_name: "Mads Kaagaard",
     categories: ["cat 1", "cat 2"],
     level_icon: "wifi.svg",
@@ -271,6 +293,7 @@ export default [
   {
     name: "Event 19",
     speaker: "/",
+     row: ["7"],
     speaker_name: "Mads Kaagaard",
     categories: ["cat 1", "cat 2"],
     level_icon: "wifi.svg",
@@ -283,6 +306,7 @@ export default [
   {
     name: "Event 20",
     speaker: "/",
+     row: ["7"],
     speaker_name: "Mads Kaagaard",
     categories: ["cat 1", "cat 2"],
     level_icon: "wifi.svg",
@@ -294,6 +318,7 @@ export default [
   }, {
     name: "Event 21",
     speaker: "/",
+     row: ["7"],
     speaker_name: "Mads Kaagaard",
     categories: ["cat 1", "cat 2"],
     level_icon: "wifi.svg",
@@ -305,6 +330,7 @@ export default [
   }, {
     name: "Event 22",
     speaker: "/",
+     row: ["7"],
     speaker_name: "Mads Kaagaard",
     categories: [],
     level_icon: "wifi.svg",
@@ -320,6 +346,7 @@ export default [
   {
     name: "Event 23",
     speaker: "/",
+     row: ["8"],
     speaker_name: "Mads Kaagaard",
     categories: ["cat 1", "cat 2"],
     level_icon: "wifi.svg",
@@ -331,6 +358,7 @@ export default [
   }, {
     name: "Event 24",
     speaker: "/",
+     row: ["8"],
     speaker_name: "Mads Kaagaard",
     categories: ["cat 1", "cat 2"],
     level_icon: "wifi.svg",
@@ -347,6 +375,7 @@ export default [
   {
     name: "Event 25",
     speaker: "/",
+    row: ["9"],
     speaker_name: "Mads Kaagaard",
     categories: ["cat 1", "cat 2"],
     level_icon: "wifi.svg",
@@ -362,6 +391,7 @@ export default [
   {
     name: "Event 26",
     speaker: "/",
+    row: ["10"],
     speaker_name: "Mads Kaagaard",
     categories: ["cat 1", "cat 2"],
     level_icon: "wifi.svg",

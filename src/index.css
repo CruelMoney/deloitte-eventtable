@@ -15,11 +15,54 @@ body {
   padding-left: 3em;
   overflow: hidden;
 }
+.program-row.collapsed{
+  display: none;
+}
+.program-row.bottom-time,
+.program-row.program-row.top-time{
+  overflow: visible;
+}
+.program-row.bottom-time .middle-time,
+.program-row.program-row.top-time .middle-time{
+  display: none;
+}
+.program-row.bottom-time{
+  margin-bottom: 2.5em;
+}
+.program-row.top-time{
+  margin-top: 2.5em;
+}
+.program-row.top-time:first-of-type{
+  margin-top: 0;
+}
+.program-row.bottom-time:last-of-type{
+  margin-bottom: 0;
+}
 .side-hour{
   position: absolute;
-  left: 0.5em;
+  left: 0em;
+  width: 2.4em;
 }
-
+.side-hour.bottom-time:after{
+  content: "";
+  position: absolute;
+  border-left: 4px dotted black;
+  height: 0.7em;
+  width: 0;
+  bottom: -1.1em;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.side-hour.top-time:before{
+  content: "";
+  position: absolute;
+  border-left: 4px dotted black;
+  height: 0.7em;
+  width: 0;
+  top: -1.1em;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
 .thumbnail-wrapper{
   width: 20%;
