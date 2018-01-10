@@ -36,6 +36,7 @@ body {
   position: absolute;
   left: 0em;
   width: 2.4em;
+  font-weight: bold;
 }
 .side-hour.bottom-time:after{
   content: "";
@@ -150,13 +151,22 @@ ul.filters{
   margin: 0;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 ul.filters li{
   display: inline-block;
   margin: 2em;
+  height: 2em;
+  position: relative;
 }
 
+ul.filters li svg{
+    position: absolute;
+    right: 0;
+    transform: translateX(100%);
+    top: 0;
+}
 
 
 
@@ -170,12 +180,20 @@ ul.filters li{
 [type="checkbox"]:not(:checked) + label,
 [type="checkbox"]:checked + label {
   position: relative;
-  padding-left: 1.95em;
+  padding-left: 3.5em;
+  margin-left: -3.5em; 
+  right: -3.5em;
+  display: block;
+  width: calc(100% - 3.5em);
+  height: 100%;
   cursor: pointer;
-  padding-top: 0.25em;
-  height: 1.6em;
   line-height: 1.6em;
   vertical-align: middle;
+  font-family: OpenSans-Semibold;
+  font-size: 12px;
+  color: #000000;
+  letter-spacing: 0;
+  line-height: 15px;
 }
 
 /* checkbox aspect */
@@ -183,24 +201,30 @@ ul.filters li{
 [type="checkbox"]:checked + label:before {
   content: '';
   position: absolute;
-  left: 0; top: 0;
-  width: 1.25em; height: 1.25em;
+  left: 0;    
+  top: 50%;
+  width: 1.8em;
+  height: 1.8em;
+  transform: translateY(-50%);
   border: 1px solid #979797;
   background: #fff;
+  
 }
 /* checked mark aspect */
 [type="checkbox"]:not(:checked) + label:after,
 [type="checkbox"]:checked + label:after {
   content: "";
-  width: 0.6em;
-  height: 1.2em;
+  width: 1em;
+  height: 2em;
   position: absolute;
-  top: -0.4em;
+  top: 50%;
+  -webkit-transform: translateY(-50%) rotate(45deg);
+  -ms-transform: translateY(-50%) rotate(45deg);
+  transform: translateY(-75%) rotate(45deg);
   border: 3px solid #86bc25;
   border-left: none;
   border-top: none;
-  left: 0.5em;
-  transform: rotate(45deg);
+  left: 0.8em;
   opacity: 0;
 }
 /* checked mark aspect changes */

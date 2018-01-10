@@ -14,5 +14,8 @@
     "eject": "react-scripts eject",
     "deploy": "yarn build; yarn transfer",
     "transfer": "scp -r build/* chris@digitalagenda.dk:/var/www/html/application/themes/deloitte/elements/dagsprogram"
+  },
+  "devDependencies": {
+    "svgr": "^1.6.0"
   }
 }

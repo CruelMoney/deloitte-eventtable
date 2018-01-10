@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
 import mock_events from './mocked_events_2';
+import {
+  Tech,
+  Business,
+  Both
+} from './icons'
 
+const icons = {
+  "Both IT and Business": <Both />,
+  "IT/technology": <Tech />,
+  "Business/strategy" : <Business />
+}
 
 class Event extends Component {
   render() {
@@ -85,7 +95,7 @@ class ProgramRow extends Component {
          <div  
          style={{top: 0 }}
          className="side-hour top-time">
-           {addLeadingZero(start_time.getHours()) + ':' + addLeadingZero(start_time.getMinutes())}
+           <u>{addLeadingZero(start_time.getHours()) + ':' + addLeadingZero(start_time.getMinutes())}</u>
          </div>
       : null}
       {overlappedHours.map(date => {
@@ -99,7 +109,7 @@ class ProgramRow extends Component {
               top: sideHourOffset+'em'
             }}
             className="side-hour middle-time">
-              {sideHour+":00"}
+              <u>{sideHour+":00"}</u>
             </div>
         )
       }) 
@@ -108,7 +118,7 @@ class ProgramRow extends Component {
          <div  
          style={{bottom: 0 }}
          className="side-hour bottom-time">
-           {addLeadingZero(end_time.getHours()) + ':' + addLeadingZero(end_time.getMinutes())}
+            <u>{addLeadingZero(end_time.getHours()) + ':' + addLeadingZero(end_time.getMinutes())}</u>
          </div>
       : null}
       {isBreak ? 
@@ -134,6 +144,7 @@ class ProgramRow extends Component {
     );
   }
 } 
+
 
 
 class Filters extends Component {
@@ -170,6 +181,9 @@ class Filters extends Component {
                 type="checkbox" >
               </input>
               <label htmlFor={o+"-"+idx}>{o}</label>
+              {
+                icons[o]
+              }
             </li>
           );
         })}
@@ -225,25 +239,25 @@ class ProgramOverview extends Component {
     renderRows = calculateExtraTimes(renderRows); 
   
     return (
-      <div className="program-overview">
+      <div>
          <div>
+           <h2>Topic themes</h2>
           <Filters 
             onChange={(val)=>{this.filterChange(filterAttr2, val)}}
             name={filterAttr2}
             options={topics}
           />
         </div>
-
+      <hr/>
         <div>
+          <h2>Categories</h2>
           <Filters 
             onChange={(val)=>{this.filterChange(filterAttr1, val)}}
             name={filterAttr1}
             options={categories}
           />
         </div>
-
-     
-
+      <div className="program-overview">
         {renderRows.map((r, idx)=>{
           return (
             <ProgramRow
@@ -253,6 +267,7 @@ class ProgramOverview extends Component {
             />
           )
         })}
+      </div>
       </div>
     );
   }
