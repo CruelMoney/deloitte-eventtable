@@ -4,7 +4,9 @@
   margin-top: 2em;
   font-size: 0.8888em;
 }
-
+.row-wrapper{
+  position: relative;
+}
 .program-row{
   position: relative;
   display: flex;
@@ -97,7 +99,7 @@
 .program-break h4,
 #page-wrapper .event-thumbnail h4,
 #page-wrapper .program-break h4{
-  font-family: OpenSans-Bold;
+  font-weight: 700;
   font-size: 1em;
   color: #000000;
   letter-spacing: 0;
@@ -106,7 +108,7 @@
 .program-break p,
 #page-wrapper .event-thumbnail p,
 #page-wrapper .program-break p{
-  font-family: OpenSans-Semibold;
+  font-weight: 600;
   font-size: 0.875em;
   color: #000000;
   letter-spacing: 0;
@@ -248,8 +250,7 @@ ul.filters li svg{
   /* height: 100%; */
   cursor: pointer;
   line-height: 1.6em;
-  vertical-align: middle;
-  font-family: OpenSans-Semibold;
+  font-weight: 600;
   font-size: 12px;
   color: #000000;
   letter-spacing: 0;

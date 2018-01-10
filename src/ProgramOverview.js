@@ -95,16 +95,20 @@ class ProgramRow extends Component {
 
 
     return(
-      <div className={
-        "program-row " + (collapse ? "collapsed" : "")
-        + (bottom_time ? " bottom-time " : "")
-        + (top_time ? " top-time " : "")}>
-        {
+      <div className="row-wrapper">
+      
+      
            <div  
            className="row-hours">
              {addLeadingZero(start_time.getHours()) + ':' + addLeadingZero(start_time.getMinutes())}-{addLeadingZero(end_time.getHours()) + ':' + addLeadingZero(end_time.getMinutes())}
            </div>
-        }
+        
+      
+      <div className={
+        "program-row " + (collapse ? "collapsed" : "")
+        + (bottom_time ? " bottom-time " : "")
+        + (top_time ? " top-time " : "")}>
+      
        {top_time ?
          <div  
          style={{top: 0 }}
@@ -154,6 +158,7 @@ class ProgramRow extends Component {
         )
       })
       }
+      </div>
       </div>
     );
   }
