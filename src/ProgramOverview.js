@@ -38,6 +38,9 @@ class Event extends Component {
             {
               icons[topic[0]]
             }
+            {type==="workshop" ?
+            <span className="participants-only">Participants only</span>
+            : null}
       </div>
     );
   }
@@ -96,6 +99,12 @@ class ProgramRow extends Component {
         "program-row " + (collapse ? "collapsed" : "")
         + (bottom_time ? " bottom-time " : "")
         + (top_time ? " top-time " : "")}>
+        {
+           <div  
+           className="row-hours">
+             <u>{addLeadingZero(start_time.getHours()) + ':' + addLeadingZero(start_time.getMinutes())}-{addLeadingZero(end_time.getHours()) + ':' + addLeadingZero(end_time.getMinutes())}</u>
+           </div>
+        }
        {top_time ?
          <div  
          style={{top: 0 }}

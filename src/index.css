@@ -1,18 +1,16 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-}
+
 
 .program-overview{
-  margin: 1em;
+  margin-top: 2em;
+  font-size: 0.8888em;
 }
 
 .program-row{
   position: relative;
   display: flex;
   margin: 4px -2px;
-  padding-left: 3em;
+  padding-left: 4.5em;
+  margin-left: -4.5em;
   overflow: hidden;
 }
 .program-row.collapsed{
@@ -32,12 +30,20 @@ body {
 .program-row.top-time{
   margin-top: 2.5em;
 }
+.row-hours{
+  display: none;
+}
 .side-hour{
   position: absolute;
   left: 0em;
   width: 2.4em;
   font-weight: bold;
 }
+.side-hour u{
+  font-size: 1.25em; 
+}
+
+
 .side-hour.bottom-time:after{
   content: "";
   position: absolute;
@@ -106,6 +112,16 @@ body {
   letter-spacing: 0;
   margin-right: 2em;
   margin-bottom: 1em;
+}
+
+.participants-only{
+  font-weight: 300;
+  display: block;
+  margin-top: 0.5em;
+  font-size: 0.75em;
+  color: #000000;
+  letter-spacing: 0;
+  line-height: 0.5em;
 }
 
 .event-thumbnail.Congress > *,
@@ -290,3 +306,74 @@ ul.filters li svg{
 [type="checkbox"]:disabled + label {
   color: #aaa;
 }
+
+
+
+
+
+@media (max-width: 1200px) {
+  .program-row{
+    margin-left: 0em;
+  }
+}
+
+
+/* MOBILE STYLE */
+@media (max-width: 62em) {
+  .program-overview{
+    margin-top: 2em;
+    font-size: 16px;
+  }
+  
+  .program-row{
+    margin-left: 0em;
+    padding-left: 0;
+    overflow-x: scroll;
+    padding-top: 2em;
+  }
+
+  .thumbnail-wrapper{
+    padding: 0;
+    width: auto;
+    margin-right: 1.5em;
+  }
+
+  .event-thumbnail{
+    width: 200px;
+    height: 125px !important;
+    box-shadow: 0 3px 14px 0px rgba(0, 0, 0, 0.15);
+    margin-bottom: 1em;
+    display: flex;
+    align-items: center;
+  }
+  
+  .event-thumbnail,
+  .program-break{
+    font-size: 0.9em;
+  }
+
+  .side-hour{
+    display: none;
+  }
+
+  .program-break{
+    background: none;
+  }
+ .event-time{
+    display: none !important;
+  }
+
+  .event-thumbnail svg{
+    position: absolute;
+    right: 1em;
+    bottom: 1em;
+  }
+  .row-hours{
+    display: block;
+    position: absolute;
+    top: 0.5em;
+  }
+}
+
+
+
