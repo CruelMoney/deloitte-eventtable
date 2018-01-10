@@ -68,28 +68,68 @@ body {
   cursor: pointer;
 }
 .event-thumbnail{
-  padding: 0.5em;
+  padding: 1em 1.125em;
   box-sizing: border-box;
-  min-height: 2.2em;
+  min-height: 3.4em;
+  position: relative;
 }
 .thumbnail-wrapper.hidden{
  display: none;
 }
 
+#page-wrapper .event-thumbnail h4,
+#page-wrapper .event-thumbnail p,
 .event-thumbnail h4,
-.event-thumbnail p{
+.event-thumbnail p,
+.program-break h4,
+.program-break p,
+#page-wrapper .program-break h4,
+#page-wrapper .program-break p{
   margin: 0;
 }
+.event-thumbnail h4,
+.program-break h4,
+#page-wrapper .event-thumbnail h4,
+#page-wrapper .program-break h4{
+  font-family: OpenSans-Bold;
+  font-size: 1em;
+  color: #000000;
+  letter-spacing: 0;
+}
+.event-thumbnail p,
+.program-break p,
+#page-wrapper .event-thumbnail p,
+#page-wrapper .program-break p{
+  font-family: OpenSans-Semibold;
+  font-size: 0.875em;
+  color: #000000;
+  letter-spacing: 0;
+  margin-right: 2em;
+  margin-bottom: 1em;
+}
 
-.event-thumbnail.Congress > *{
+.event-thumbnail.Congress > *,
+.program-break > *{
   display: inline-block;
+}
+.event-thumbnail svg{
+  height: 1em;
+  width: auto;
+  margin-left: 1em;
+}
+.event-thumbnail:not(.Congress) svg{
+  position: absolute;
+  right: 1em;
+  bottom: 1em;
 }
 
 .program-break{
   width: 100%;
   margin: 0 2px;
-  padding: 0.5em;
   background-color: #F4F4F4;
+  padding: 1em 1.125em;
+  box-sizing: border-box;
+  min-height: 3.4em;
 }
 
 .Congress.thumbnail-wrapper{

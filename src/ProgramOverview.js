@@ -20,7 +20,8 @@ class Event extends Component {
       type,
       start_time,
       end_time,
-      hidden
+      hidden,
+      topic
     } = this.props;
 
     const timeString = datesToIntervalString(start_time, end_time);
@@ -34,6 +35,9 @@ class Event extends Component {
       className={"event-thumbnail " + scene + " " + type + (hidden ? " hidden" : "")}>
           <p className="event-time">{timeString}</p>
           <h4>{name}</h4>
+            {
+              icons[topic[0]]
+            }
       </div>
     );
   }
@@ -55,7 +59,8 @@ class ProgramBreak extends Component {
         height:msToEms(duration)+"em"
       }}
       className="program-break">
-          <p className="event-time">{timeString} Break</p> 
+          <p className="event-time">{timeString}</p> 
+          <h4>Break</h4>
       </div>
     );
   }
