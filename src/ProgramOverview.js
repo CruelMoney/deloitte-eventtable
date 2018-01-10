@@ -45,7 +45,7 @@ class ProgramBreak extends Component {
         height:msToEms(duration)+"em"
       }}
       className="program-break">
-          <p className="event-time">{timeString} Break</p> 
+          <p className="event-time">{timeString} BREAK</p> 
       </div>
     );
   }
@@ -331,7 +331,7 @@ const eventFitsInRow = (rows, event) => {
   if(idx !== -1){
     const row = rows[idx];
     row.start_time = row.start_time < event.start_time ? row.start_time :  event.start_time;
-    row.end_time = row.end_time < event.end_time ? row.end_time :  event.end_time;
+    row.end_time = row.end_time > event.end_time ? row.end_time :  event.end_time;
     row.events.push(event);
   }
   return idx !== -1;
@@ -359,7 +359,6 @@ const eventsToTimeTable = (events) => {
       }
       rows.push(timeBreak)
     }
-
     // Update time
     last_end_time = end_time;
 

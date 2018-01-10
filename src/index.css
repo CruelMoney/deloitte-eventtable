@@ -32,12 +32,6 @@ body {
 .program-row.top-time{
   margin-top: 2.5em;
 }
-.program-row.top-time:first-of-type{
-  margin-top: 0;
-}
-.program-row.bottom-time:last-of-type{
-  margin-bottom: 0;
-}
 .side-hour{
   position: absolute;
   left: 0em;
@@ -79,8 +73,11 @@ body {
 
 .event-thumbnail h4,
 .event-thumbnail p{
-  display: inline-block;
   margin: 0;
+}
+
+.event-thumbnail.scene-1 > *{
+  display: inline-block;
 }
 
 .program-break{

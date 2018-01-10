@@ -204,19 +204,20 @@ export default [
     thumbnail: "img2.jpeg",
     start_time: "Fri Jan 05 2018 11:45:00 GMT+0800 (+08)",
     end_time: "Fri Jan 05 2018 12:15:00 GMT+0800 (+08)"
-  }, {
-    name: "Event 17",
-    speaker: "/",
-     row: ["4.5"],
-    speaker_name: "Mads Kaagaard",
-    categories: ["cat 1", "cat 2"],
-    level_icon: "wifi.svg",
-    scene: "workshop",
-    type: "speak", 
-    thumbnail: "img2.jpeg",
-    start_time: "Fri Jan 05 2018 11:45:00 GMT+0800 (+08)",
-    end_time: "Fri Jan 05 2018 12:15:00 GMT+0800 (+08)"
-  },
+  }, 
+  // {
+  //   name: "Event 17",
+  //   speaker: "/",
+  //    row: ["4.5"],
+  //   speaker_name: "Mads Kaagaard",
+  //   categories: ["cat 1", "cat 2"],
+  //   level_icon: "wifi.svg",
+  //   scene: "workshop",
+  //   type: "speak", 
+  //   thumbnail: "img2.jpeg",
+  //   start_time: "Fri Jan 05 2018 11:45:00 GMT+0800 (+08)",
+  //   end_time: "Fri Jan 05 2018 12:15:00 GMT+0800 (+08)"
+  // },
 
   //
 
