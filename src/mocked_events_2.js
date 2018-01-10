@@ -236,4 +236,55 @@ export default [{
     "timezone_type": 3,
     "timezone": "UTC"
   }
+}, {
+  "name": "Nathan Furr",
+  "link": "\/program\/openingshow-copenhagen-drummers",
+  "scene": ["Pjerrot"],
+  "categories": ["Robotics & cognitive automation", "Digital business models & transformation", "Digital customer engagement", "Artificial intelligence & machine learning", "Emerging technologies"],
+  "topic": ["Both IT and Business"],
+  "thumbnail": null,
+  "start_time": {
+    "date": "2018-03-01 11:10:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  },
+  "end_time": {
+    "date": "2018-03-01 11:50:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  }
+}, {
+  "name": "Google",
+  "link": null,
+  "scene": ["Columbine"],
+  "categories": ["Robotics & cognitive automation", "Digital business models & transformation", "Digital customer engagement", "Artificial intelligence & machine learning", "Emerging technologies"],
+  "topic": ["IT\/technology"],
+  "thumbnail": null,
+  "start_time": {
+    "date": "2018-03-01 11:10:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  },
+  "end_time": {
+    "date": "2018-03-01 11:50:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  }
+}, {
+  "name": "IBM",
+  "link": null,
+  "scene": ["Harlekin"],
+  "categories": ["Robotics & cognitive automation", "Digital business models & transformation", "Digital customer engagement", "Artificial intelligence & machine learning", "Emerging technologies"],
+  "topic": ["Business\/strategy"],
+  "thumbnail": null,
+  "start_time": {
+    "date": "2018-03-01 11:10:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  },
+  "end_time": {
+    "date": "2018-03-01 11:50:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  }
 }]

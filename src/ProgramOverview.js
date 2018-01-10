@@ -129,7 +129,7 @@ class ProgramRow extends Component {
         return (
           <div 
             key={"event-"+idx}
-            className={"thumbnail-wrapper " + e.scene + " " + type + (!!e.link ? " clickable " : "")}
+            className={"thumbnail-wrapper " + e.scene + " " + type + (!!e.link ? " clickable " : "") + (e.hidden ? " hidden " : "")}
             onClick={()=>{!!e.link && window.loadModal(e.link)}}
             >
             <Event  
@@ -173,14 +173,17 @@ class Filters extends Component {
       <ul className="filters">
         {options.map((o, idx)=>{
           return(
+          
             <li key={name+"-option-"+idx}>
-              <input 
-                id={o+"-"+idx} 
-                onChange={(e)=>this.onChange(o, e)}
-                name={name+"-"+idx} 
-                type="checkbox" >
-              </input>
-              <label htmlFor={o+"-"+idx}>{o}</label>
+              <div className="filter-option">
+                <input 
+                  id={o+"-"+idx} 
+                  onChange={(e)=>this.onChange(o, e)}
+                  name={name+"-"+idx} 
+                  type="checkbox" >
+                </input>
+                <label htmlFor={o+"-"+idx}>{o}</label>
+              </div>
               {
                 icons[o]
               }

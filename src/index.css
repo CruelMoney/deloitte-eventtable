@@ -72,7 +72,7 @@ body {
   box-sizing: border-box;
   min-height: 2.2em;
 }
-.event-thumbnail.hidden{
+.thumbnail-wrapper.hidden{
  display: none;
 }
 
@@ -155,19 +155,23 @@ ul.filters{
 }
 
 ul.filters li{
-  display: inline-block;
-  margin: 2em;
+  margin: 1em;
   height: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
+  flex: 1;
 }
 
 ul.filters li svg{
-    position: absolute;
-    right: 0;
-    transform: translateX(100%);
-    top: 0;
+  display: inline-block;
+  margin-left: 0.7em;
 }
 
+.filter-option{
+  display: inline-block;
+}
 
 
 /* CHECKBOX STYLING */
@@ -181,11 +185,11 @@ ul.filters li svg{
 [type="checkbox"]:checked + label {
   position: relative;
   padding-left: 3.5em;
-  margin-left: -3.5em; 
-  right: -3.5em;
+  /* margin-left: -3.5em; */
+  /* right: -3.5em; */
   display: block;
-  width: calc(100% - 3.5em);
-  height: 100%;
+  width: auto;
+  /* height: 100%; */
   cursor: pointer;
   line-height: 1.6em;
   vertical-align: middle;
