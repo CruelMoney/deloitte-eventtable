@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import mock_events from './mocked_events';
+import mock_events from './mocked_events_2';
 
 
 class Event extends Component {
   render() {
     const { 
       scene, 
-      type,
       name,
+      type,
       start_time,
       end_time,
       hidden
@@ -45,7 +45,7 @@ class ProgramBreak extends Component {
         height:msToEms(duration)+"em"
       }}
       className="program-break">
-          <p className="event-time">{timeString} BREAK</p> 
+          <p className="event-time">{timeString} Break</p> 
       </div>
     );
   }
@@ -59,16 +59,22 @@ class ProgramRow extends Component {
       end_time, 
       collapse,
       bottom_time,
-      top_time
+      top_time,
+      lastRow
      } = this.props; 
     const isBreak = !events;
     
     // Calculating side hour
-    const medianDate = getMedianDate(start_time, end_time);
-    medianDate.setMinutes(0,0,0);
-    const sideHourOffset = msToEms(medianDate - start_time);
-    const sideHour = addLeadingZero(medianDate.getHours());
-    const hideSideHour = medianDate.getTime() === end_time.getTime();
+    //const medianDate = getMedianDate(start_time, end_time);
+    const overlappedHours = getOverlappedHours(start_time, end_time)
+    
+    const rowHeight = msToEms(end_time - start_time);
+    // const hideSideHour = (
+    //   (medianDate.getTime() === end_time.getTime()
+    //   || sideHourOffset < 0
+    //   || sideHourOffset > rowHeight)
+    // );
+
 
     return(
       <div className={
@@ -82,14 +88,23 @@ class ProgramRow extends Component {
            {addLeadingZero(start_time.getHours()) + ':' + addLeadingZero(start_time.getMinutes())}
          </div>
       : null}
-      <div 
-      style={{
-        top: sideHourOffset+'em'
-      }}
-      className="side-hour middle-time">
-        {hideSideHour ? "" : sideHour+":00"}
-      </div>
-      {bottom_time ?
+      {overlappedHours.map(date => {
+        date.setMinutes(0,0,0);
+        if(date < start_time || date >= end_time) return null
+        const sideHourOffset = msToEms(date - start_time);
+        const sideHour = addLeadingZero(date.getHours());
+        return (
+            <div 
+            style={{
+              top: sideHourOffset+'em'
+            }}
+            className="side-hour middle-time">
+              {sideHour+":00"}
+            </div>
+        )
+      }) 
+      }
+      {bottom_time || lastRow ?
          <div  
          style={{bottom: 0 }}
          className="side-hour bottom-time">
@@ -100,13 +115,16 @@ class ProgramRow extends Component {
       <ProgramBreak start_time={start_time} end_time={end_time} />
       :
       events.map((e, idx)=>{
+        const type = (!!(e.scene.indexOf("Blomstersalen")+1) || !!(e.scene.indexOf("Ballonsalen")+1)) ? "workshop" : "speak"; 
         return (
           <div 
             key={"event-"+idx}
-            className={"thumbnail-wrapper " + e.scene}
+            className={"thumbnail-wrapper " + e.scene + " " + type + (!!e.link ? " clickable " : "")}
+            onClick={()=>{!!e.link && window.loadModal(e.link)}}
             >
             <Event  
             {...e}
+            type={type}
             />
           </div>
         )
@@ -178,7 +196,14 @@ class ProgramOverview extends Component {
   }
 
   componentWillMount(){
-    const events = parseEvents(mock_events);
+    let events;
+
+    if(window.program_events){
+      events = parseEvents(window.program_events)
+    }else{
+      events = parseEvents(mock_events);
+    }
+
     const rows = eventsToTimeTable(events);
 
     this.setState({
@@ -192,15 +217,23 @@ class ProgramOverview extends Component {
     const { rows, events, filters } = this.state;
     const filterAttr1 = "categories";
     const categories = mapToUnique(events, filterAttr1);
-    const filterAttr2 = "row";
-    const rowFilters = mapToUnique(events, filterAttr2);
+    const filterAttr2 = "topic";
+    const topics = mapToUnique(events, filterAttr2);
 
     let renderRows =  filterRows(rows, filters);
     renderRows = collapseBreaks(renderRows);
-    renderRows = calculateExtraTimes(renderRows);
-
+    renderRows = calculateExtraTimes(renderRows); 
+  
     return (
       <div className="program-overview">
+         <div>
+          <Filters 
+            onChange={(val)=>{this.filterChange(filterAttr2, val)}}
+            name={filterAttr2}
+            options={topics}
+          />
+        </div>
+
         <div>
           <Filters 
             onChange={(val)=>{this.filterChange(filterAttr1, val)}}
@@ -209,17 +242,12 @@ class ProgramOverview extends Component {
           />
         </div>
 
-        <div>
-          <Filters 
-            onChange={(val)=>{this.filterChange(filterAttr2, val)}}
-            name={filterAttr2}
-            options={rowFilters}
-          />
-        </div>
+     
 
         {renderRows.map((r, idx)=>{
           return (
-            <ProgramRow 
+            <ProgramRow
+              lastRow={idx+1===renderRows.length}
               key={"ProgramRow-"+idx}
               {...r}
             />
@@ -378,8 +406,20 @@ const eventsToTimeTable = (events) => {
   return rows;
 }
 
+const getOverlappedHours = (start,end) => {
+  const nHours = Math.max((end.getHours() - start.getHours()), 1);
+  const hours = [];
+
+  for (let n = 0; n < nHours; n++) {
+    hours.push(new Date(start.getTime() + n*60*60*1000));
+  }
+  hours.push(new Date(end.getTime()));
+
+  return hours;
+}
+
 const getMedianDate = (start,end) => {
-  return new Date(start.getTime() + (end-start));
+  return new Date(start.getTime() + (end - start)/2);
 }
 
 const addLeadingZero = (num) => {
@@ -393,13 +433,18 @@ const datesToIntervalString = (d1, d2) => {
 }
 
 const parseEvents = (events) => {
-  return events.map(e => {
-    return {
-      ...e,
-      start_time: new Date(e.start_time),
-      end_time: new Date(e.end_time)
+  return events.reduce((acc, e) => {
+    if(!e.start_time || !e.end_time){
+      return acc
     }
-  });
+    return [
+      ...acc,
+      {
+      ...e,
+      start_time: new Date(e.start_time.date),
+      end_time: new Date(e.end_time.date)
+    }]
+  }, []);
 }
 
 
