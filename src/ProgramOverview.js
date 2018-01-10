@@ -102,7 +102,7 @@ class ProgramRow extends Component {
         {
            <div  
            className="row-hours">
-             <u>{addLeadingZero(start_time.getHours()) + ':' + addLeadingZero(start_time.getMinutes())}-{addLeadingZero(end_time.getHours()) + ':' + addLeadingZero(end_time.getMinutes())}</u>
+             {addLeadingZero(start_time.getHours()) + ':' + addLeadingZero(start_time.getMinutes())}-{addLeadingZero(end_time.getHours()) + ':' + addLeadingZero(end_time.getMinutes())}
            </div>
         }
        {top_time ?
@@ -231,10 +231,11 @@ class ProgramOverview extends Component {
 
     if(window.program_events){
       events = parseEvents(window.program_events)
+      
     }else{
       events = parseEvents(mock_events);
     }
-
+    console.log(events)
     const rows = eventsToTimeTable(events);
 
     this.setState({
@@ -473,8 +474,8 @@ const parseEvents = (events) => {
       ...acc,
       {
       ...e,
-      start_time: new Date(e.start_time.date),
-      end_time: new Date(e.end_time.date)
+      start_time: new Date(e.start_time.date.replace(/-/g, "/").replace(".000000", "")),
+      end_time: new Date(e.end_time.date.replace(/-/g, "/").replace(".000000", ""))
     }]
   }, []);
 }

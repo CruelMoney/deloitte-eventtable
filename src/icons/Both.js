@@ -15,6 +15,7 @@ const Both = props => (
     </defs>
     <g fill="none" fillRule="evenodd">
       <path
+        className="svg-dash"
         d="M39.5 1.5l-16 22"
         stroke="#000"
         strokeWidth={2}

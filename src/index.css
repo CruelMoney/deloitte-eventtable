@@ -344,7 +344,8 @@ ul.filters li svg{
     box-shadow: 0 3px 14px 0px rgba(0, 0, 0, 0.15);
     margin-bottom: 1em;
     display: flex;
-    align-items: center;
+    justify-content: center;
+    flex-direction: column;
   }
   
   .event-thumbnail,
@@ -368,10 +369,29 @@ ul.filters li svg{
     right: 1em;
     bottom: 1em;
   }
+  .event-thumbnail svg path{
+    fill: white;
+  }
+  .event-thumbnail .svg-dash{
+    stroke: white;
+  }
   .row-hours{
     display: block;
     position: absolute;
     top: 0.5em;
+    font-weight: 800;
+  }
+  #page-wrapper .event-thumbnail:not(.workshop) h4, .event-thumbnail:not(.workshop) h4,
+  #page-wrapper .event-thumbnail:not(.workshop) p, .event-thumbnail:not(.workshop) p{
+    color: white;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+
+  }
+  ul.filters li{
+    width: 45%;
+    margin: 1em 0.5em;
+    justify-content: left;
   }
 }
 

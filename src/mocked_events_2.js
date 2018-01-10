@@ -6,12 +6,12 @@ export default [{
   "topic": ["Both IT and Business"],
   "thumbnail": null,
   "start_time": {
-    "date": "2018-03-01 09:30:00.000000",
+    "date": "2018-03-01 09:30:00",
     "timezone_type": 3,
     "timezone": "UTC"
   },
   "end_time": {
-    "date": "2018-03-01 10:10:00.000000",
+    "date": "2018-03-01 10:10:00",
     "timezone_type": 3,
     "timezone": "UTC"
   }
