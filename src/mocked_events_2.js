@@ -6,12 +6,12 @@ export default [{
   "topic": ["Both IT and Business"],
   "thumbnail": null,
   "start_time": {
-    "date": "2018-03-01 09:30:00",
+    "date": "2018-03-01 09:30:00.000000",
     "timezone_type": 3,
     "timezone": "UTC"
   },
   "end_time": {
-    "date": "2018-03-01 10:10:00",
+    "date": "2018-03-01 10:10:00.000000",
     "timezone_type": 3,
     "timezone": "UTC"
   }
@@ -284,6 +284,91 @@ export default [{
   },
   "end_time": {
     "date": "2018-03-01 11:50:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  }
+}, {
+  "name": "Jonathan L\u00f8w",
+  "link": "\/digitalagenda-dk\/anders-dons-2-2-2",
+  "scene": ["Vandsalen"],
+  "categories": ["Robotics & cognitive automation", "Digital business models & transformation", "Digital customer engagement", "Artificial intelligence & machine learning", "Emerging technologies"],
+  "topic": ["Both IT and Business"],
+  "thumbnail": null,
+  "start_time": {
+    "date": "2018-03-01 13:00:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  },
+  "end_time": {
+    "date": "2018-03-01 13:30:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  }
+}, {
+  "name": "Novo Nordisk",
+  "link": null,
+  "scene": ["Pjerrot"],
+  "categories": ["Robotics & cognitive automation", "Digital business models & transformation", "Digital customer engagement", "Artificial intelligence & machine learning", "Emerging technologies"],
+  "topic": ["Both IT and Business"],
+  "thumbnail": null,
+  "start_time": {
+    "date": "2018-03-01 13:00:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  },
+  "end_time": {
+    "date": "2018-03-01 13:30:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  }
+}, {
+  "name": "Salesforce",
+  "link": null,
+  "scene": ["Columbine"],
+  "categories": ["Robotics & cognitive automation", "Digital business models & transformation", "Digital customer engagement", "Artificial intelligence & machine learning", "Emerging technologies"],
+  "topic": ["Both IT and Business"],
+  "thumbnail": null,
+  "start_time": {
+    "date": "2018-03-01 13:00:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  },
+  "end_time": {
+    "date": "2018-03-01 13:30:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  }
+}, {
+  "name": "Skatteministeriet",
+  "link": null,
+  "scene": ["Harlekin"],
+  "categories": ["Robotics & cognitive automation", "Digital business models & transformation", "Digital customer engagement", "Artificial intelligence & machine learning", "Emerging technologies"],
+  "topic": ["Both IT and Business"],
+  "thumbnail": null,
+  "start_time": {
+    "date": "2018-03-01 13:00:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  },
+  "end_time": {
+    "date": "2018-03-01 13:30:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  }
+}, {
+  "name": "Workshop 3",
+  "link": null,
+  "scene": ["Blomstersalen"],
+  "categories": [],
+  "topic": [],
+  "thumbnail": null,
+  "start_time": {
+    "date": "2018-03-01 13:00:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  },
+  "end_time": {
+    "date": "2018-03-01 13:30:00.000000",
     "timezone_type": 3,
     "timezone": "UTC"
   }

@@ -35,9 +35,9 @@ class Event extends Component {
       className={"event-thumbnail " + scene + " " + type + (hidden ? " hidden" : "")}>
           <p className="event-time">{timeString}</p>
           <h4>{name}</h4>
-            {
+            {/* {
               icons[topic[0]]
-            }
+            } */}
             {type==="workshop" ?
             <span className="participants-only">Participants only</span>
             : null}
@@ -95,7 +95,7 @@ class ProgramRow extends Component {
 
 
     return(
-      <div className="row-wrapper">
+      <div className={"row-wrapper " + (collapse ? "collapsed" : "")}>
       
       
            <div  
@@ -263,15 +263,14 @@ class ProgramOverview extends Component {
   
     return (
       <div>
-         <div>
+         {/* <div>
            <h2>Topic themes</h2>
           <Filters 
             onChange={(val)=>{this.filterChange(filterAttr2, val)}}
             name={filterAttr2}
             options={topics}
           />
-        </div>
-      <hr/>
+        </div> */}
         <div>
           <h2>Categories</h2>
           <Filters 
