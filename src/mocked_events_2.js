@@ -372,4 +372,353 @@ export default [{
     "timezone_type": 3,
     "timezone": "UTC"
   }
+}, {
+  "name": "Workshop 4",
+  "link": null,
+  "scene": ["Ballonsalen"],
+  "categories": ["Robotics & cognitive automation"],
+  "topic": ["IT\/technology"],
+  "thumbnail": null,
+  "start_time": {
+    "date": "2018-03-01 13:00:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  },
+  "end_time": {
+    "date": "2018-03-01 13:30:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  }
+}, {
+  "name": "Lone F\u00f8nss",
+  "link": "\/digitalagenda-dk\/anders-dons-2",
+  "scene": ["Vandsalen"],
+  "categories": ["Digital business models & transformation"],
+  "topic": ["Both IT and Business"],
+  "thumbnail": null,
+  "start_time": {
+    "date": "2018-03-01 13:40:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  },
+  "end_time": {
+    "date": "2018-03-01 14:10:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  }
+}, {
+  "name": "SAP",
+  "link": null,
+  "scene": ["Pjerrot"],
+  "categories": ["Digital customer engagement"],
+  "topic": ["Business\/strategy"],
+  "thumbnail": null,
+  "start_time": {
+    "date": "2018-03-01 13:40:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  },
+  "end_time": {
+    "date": "2018-03-01 14:10:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  }
+}, {
+  "name": "Vertas",
+  "link": null,
+  "scene": ["Columbine"],
+  "categories": ["Artificial intelligence & machine learning"],
+  "topic": ["Both IT and Business"],
+  "thumbnail": null,
+  "start_time": {
+    "date": "2018-03-01 13:40:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  },
+  "end_time": {
+    "date": "2018-03-01 14:10:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  }
+}, {
+  "name": "Informatica",
+  "link": null,
+  "scene": ["Harlekin"],
+  "categories": ["Emerging technologies"],
+  "topic": ["Business\/strategy"],
+  "thumbnail": null,
+  "start_time": {
+    "date": "2018-03-01 13:40:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  },
+  "end_time": {
+    "date": "2018-03-01 14:10:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  }
+}, {
+  "name": "Workshop 3 Continued",
+  "link": null,
+  "scene": ["Blomstersalen"],
+  "categories": ["Robotics & cognitive automation"],
+  "topic": ["Business\/strategy"],
+  "thumbnail": null,
+  "start_time": {
+    "date": "2018-03-01 13:40:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  },
+  "end_time": {
+    "date": "2018-03-01 14:10:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  }
+}, {
+  "name": "Workshop 4 Continued",
+  "link": null,
+  "scene": ["Ballonsalen"],
+  "categories": ["Digital business models & transformation"],
+  "topic": ["Both IT and Business"],
+  "thumbnail": null,
+  "start_time": {
+    "date": "2018-03-01 13:40:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  },
+  "end_time": {
+    "date": "2018-03-01 14:10:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  }
+}, {
+  "name": "Danske Spil (CEO)",
+  "link": null,
+  "scene": ["Vandsalen"],
+  "categories": ["Digital customer engagement"],
+  "topic": ["IT\/technology"],
+  "thumbnail": null,
+  "start_time": {
+    "date": "2018-03-01 14:30:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  },
+  "end_time": {
+    "date": "2018-03-01 15:00:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  }
+}, {
+  "name": "Coop",
+  "link": null,
+  "scene": ["Pjerrot"],
+  "categories": ["Artificial intelligence & machine learning"],
+  "topic": ["Both IT and Business"],
+  "thumbnail": null,
+  "start_time": {
+    "date": "2018-03-01 14:30:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  },
+  "end_time": null
+}, {
+  "name": "Dell Boomi",
+  "link": null,
+  "scene": ["Columbine"],
+  "categories": ["Emerging technologies"],
+  "topic": ["Business\/strategy"],
+  "thumbnail": null,
+  "start_time": {
+    "date": "2018-03-01 14:30:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  },
+  "end_time": {
+    "date": "2018-03-01 15:00:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  }
+}, {
+  "name": "Deloitte (Hans)",
+  "link": "\/digitalagenda-dk\/anders-dons-2-8",
+  "scene": ["Harlekin"],
+  "categories": ["Emerging technologies"],
+  "topic": ["Both IT and Business"],
+  "thumbnail": null,
+  "start_time": {
+    "date": "2018-03-01 14:30:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  },
+  "end_time": {
+    "date": "2018-03-01 15:00:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  }
+}, {
+  "name": "Workshop 5",
+  "link": null,
+  "scene": ["Blomstersalen"],
+  "categories": ["Robotics & cognitive automation"],
+  "topic": ["Business\/strategy"],
+  "thumbnail": null,
+  "start_time": {
+    "date": "2018-03-01 14:30:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  },
+  "end_time": {
+    "date": "2018-03-01 15:00:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  }
+}, {
+  "name": "Workshop 6",
+  "link": null,
+  "scene": ["Ballonsalen"],
+  "categories": ["Digital business models & transformation"],
+  "topic": ["IT\/technology"],
+  "thumbnail": null,
+  "start_time": {
+    "date": "2018-03-01 14:30:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  },
+  "end_time": {
+    "date": "2018-03-01 15:00:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  }
+}, {
+  "name": "AirHelp",
+  "link": null,
+  "scene": ["Vandsalen"],
+  "categories": ["Digital customer engagement"],
+  "topic": ["Both IT and Business"],
+  "thumbnail": null,
+  "start_time": {
+    "date": "2018-03-01 15:10:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  },
+  "end_time": {
+    "date": "2018-03-01 15:40:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  }
+}, {
+  "name": "PFA Pension",
+  "link": null,
+  "scene": ["Pjerrot"],
+  "categories": ["Artificial intelligence & machine learning"],
+  "topic": ["Business\/strategy"],
+  "thumbnail": null,
+  "start_time": {
+    "date": "2018-03-01 15:10:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  },
+  "end_time": null
+}, {
+  "name": "Deloitte (Frank)",
+  "link": null,
+  "scene": ["Columbine"],
+  "categories": ["Emerging technologies"],
+  "topic": ["IT\/technology"],
+  "thumbnail": null,
+  "start_time": {
+    "date": "2018-03-01 15:10:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  },
+  "end_time": {
+    "date": "2018-03-01 15:40:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  }
+}, {
+  "name": "Google (Dagrofa)",
+  "link": null,
+  "scene": ["Harlekin"],
+  "categories": ["Artificial intelligence & machine learning"],
+  "topic": ["Both IT and Business"],
+  "thumbnail": null,
+  "start_time": {
+    "date": "2018-03-01 15:10:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  },
+  "end_time": {
+    "date": "2018-03-01 15:40:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  }
+}, {
+  "name": "Workshop 5 Continued",
+  "link": null,
+  "scene": ["Blomstersalen"],
+  "categories": ["Robotics & cognitive automation"],
+  "topic": ["Business\/strategy"],
+  "thumbnail": null,
+  "start_time": {
+    "date": "2018-03-01 15:10:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  },
+  "end_time": {
+    "date": "2018-03-01 15:40:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  }
+}, {
+  "name": "Workshop 6 Continued",
+  "link": null,
+  "scene": ["Ballonsalen"],
+  "categories": ["Robotics & cognitive automation"],
+  "topic": ["Both IT and Business"],
+  "thumbnail": null,
+  "start_time": {
+    "date": "2018-03-01 15:10:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  },
+  "end_time": {
+    "date": "2018-03-01 15:40:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  }
+}, {
+  "name": "Keynote - Soulaima Gourani",
+  "link": "\/digitalagenda-dk\/anders-dons-2-2",
+  "scene": ["Congress"],
+  "categories": ["Digital customer engagement"],
+  "topic": ["Both IT and Business"],
+  "thumbnail": null,
+  "start_time": {
+    "date": "2018-03-01 16:00:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  },
+  "end_time": {
+    "date": "2018-03-01 16:30:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  }
+}, {
+  "name": "Closing keynote - Garry Kasparov",
+  "link": "\/digitalagenda-dk\/anders-dons",
+  "scene": ["Congress"],
+  "categories": ["Artificial intelligence & machine learning"],
+  "topic": ["Both IT and Business"],
+  "thumbnail": null,
+  "start_time": {
+    "date": "2018-03-01 16:30:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  },
+  "end_time": {
+    "date": "2018-03-01 17:30:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  }
 }]

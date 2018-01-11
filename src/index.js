@@ -3,4 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import ProgramOverview from './ProgramOverview';
 
-ReactDOM.render(<ProgramOverview />, document.getElementById('program-overview-root'));
+
+document.addEventListener("DOMContentLoaded", function() {
+  ReactDOM.render(<ProgramOverview />, document.getElementById('program-overview-root'));
+});

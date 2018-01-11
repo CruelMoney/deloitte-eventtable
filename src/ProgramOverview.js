@@ -63,7 +63,7 @@ class ProgramBreak extends Component {
       }}
       className="program-break">
           <p className="event-time">{timeString}</p> 
-          <h4>Break</h4>
+          <h4>{duration <= 600000 ? "Track change" : "Break"}</h4>
       </div>
     );
   }
@@ -107,7 +107,11 @@ class ProgramRow extends Component {
       <div className={
         "program-row " + (collapse ? "collapsed" : "")
         + (bottom_time ? " bottom-time " : "")
-        + (top_time ? " top-time " : "")}>
+        + (top_time ? " top-time " : "")}
+        style={{
+          maxHeight: (Math.max(rowHeight, 3.4))+"em"
+        }}
+        >
       
        {top_time ?
          <div  
@@ -240,7 +244,6 @@ class ProgramOverview extends Component {
     }else{
       events = parseEvents(mock_events);
     }
-    console.log(events)
     const rows = eventsToTimeTable(events);
 
     this.setState({
@@ -263,14 +266,15 @@ class ProgramOverview extends Component {
   
     return (
       <div>
-         {/* <div>
+         <div>
            <h2>Topic themes</h2>
           <Filters 
             onChange={(val)=>{this.filterChange(filterAttr2, val)}}
             name={filterAttr2}
             options={topics}
           />
-        </div> */}
+        </div>
+        <hr/>
         <div>
           <h2>Categories</h2>
           <Filters 

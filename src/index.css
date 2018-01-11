@@ -15,14 +15,12 @@
   margin-left: -4.5em;
   overflow: hidden;
   -webkit-overflow-scrolling: touch; 
-  max-height: 10em;
+  will-change: max-height;
   transition: all 500ms ease;
   transition-delay: 500ms;
-
-  
 }
 .program-row.collapsed{
-  max-height: 0;
+  max-height: 0 !important;
   margin: 0px !important;
   margin-left: -4.5em !important;
   overflow: hidden !important;
@@ -54,6 +52,7 @@
 .program-row.top-time{
   overflow: visible;
 }
+
 .program-row.bottom-time .middle-time,
 .program-row.program-row.top-time .middle-time{
   opacity: 0;
@@ -119,7 +118,7 @@
   cursor: pointer;
 }
 .event-thumbnail{
-  padding: 1em 1.125em;
+  padding: 0.5em 0.5em;
   box-sizing: border-box;
   min-height: 3.4em;
   position: relative;
@@ -166,7 +165,7 @@
   color: #000000;
   letter-spacing: 0;
   margin-right: 2em;
-  margin-bottom: 1em;
+  margin-bottom: 0.3em;
 }
 
 .participants-only{
@@ -387,6 +386,8 @@ ul.filters li svg{
     padding-left: 0;
     overflow-x: scroll;
     padding-top: 2em;
+    overflow: scroll !important;
+    max-height: 150px !important;
   }
   .program-row.collapsed{
     padding-top: 0;
@@ -396,6 +397,10 @@ ul.filters li svg{
     padding: 0;
     width: auto;
     margin-right: 1.5em;
+  }
+
+  .workshop{
+    margin-left: 0;
   }
 
  .thumbnail-wrapper.hidden{
@@ -422,7 +427,9 @@ ul.filters li svg{
   }
 
   .program-break{
-    background: none;
+    width: 200px;
+    box-shadow: 0 3px 14px 0px rgba(0, 0, 0, 0.15);
+    margin-bottom: 1em;
   }
  .event-time{
     display: none !important;
