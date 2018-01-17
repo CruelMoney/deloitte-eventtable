@@ -101,12 +101,14 @@
 }
 
 .thumbnail-wrapper{
+  position: relative;
   width: 16.6666%;
   padding: 0 2px;
   box-sizing: border-box;
   transition: width 500ms ease, opacity 500ms ease;
 }
 .thumbnail-wrapper.hidden{
+  transition-delay: 250ms;
   overflow: hidden;
   width: 0;
  }
@@ -120,7 +122,7 @@
 .event-thumbnail{
   padding: 0.5em 0.5em;
   box-sizing: border-box;
-  min-height: 3.4em;
+  min-height: 2.7em;
   position: relative;
 }
 .thumbnail-wrapper.hidden .event-thumbnail *,
@@ -197,9 +199,9 @@
   width: 100%;
   margin: 0 2px;
   background-color: #F4F4F4;
-  padding: 1em 1.125em;
+  padding: .5em;
   box-sizing: border-box;
-  min-height: 3.4em;
+  min-height: 2.7em;
 }
 
 .Congress.thumbnail-wrapper{
@@ -209,25 +211,25 @@
   order: 1;
 }
 .Congress .event-thumbnail{
-  background-color: #A1ED4A;
+  border: solid 1px #e1e2e3;
 }
 .Vandsalen{
   order: 2;
 }
 .Vandsalen .event-thumbnail{
-  background-color: #8BEFD2;
+  background-color: #86F200;
 }
 .Pjerrot{
   order: 3;
 }
 .Pjerrot .event-thumbnail{
-  background-color: #34F0FF;
+  background-color: #3EFAC4;
 }
 .Columbine{
   order: 4;
 }
 .Columbine .event-thumbnail{
-  background-color: #e1e2e3;
+  background-color: #34F0FF;
 }
 .Harlekin{
   order: 5;
@@ -245,8 +247,7 @@
   margin-left: auto;
 }
 .workshop .event-thumbnail{
-  background-color: transparent;
-  border: 1px dashed #979797;
+  background-color: #e1e2e3;
 }
 
 .workshop + .workshop{
@@ -260,18 +261,21 @@ ul.filters{
   padding: 0;
   margin: 0;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   flex-wrap: wrap;
+  margin: 1em 0 !important;
 }
 
 ul.filters li{
   margin: 1em;
+  margin-right: 2em;
   height: 2em;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   position: relative;
-  flex: 1;
+  max-width: 8.6em;
+  margin-left: 0;
 }
 
 ul.filters li svg{
@@ -396,8 +400,11 @@ ul.filters li svg{
   .thumbnail-wrapper{
     padding: 0;
     width: auto;
-    margin-right: 1.5em;
   }
+  .thumbnail-wrapper:not(.Congress){
+    padding-right: 1em;
+  }
+
 
   .workshop{
     margin-left: 0;
@@ -413,7 +420,7 @@ ul.filters li svg{
     box-shadow: 0 3px 14px 0px rgba(0, 0, 0, 0.15);
     margin-bottom: 1em;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     flex-direction: column;
   }
   
@@ -428,7 +435,6 @@ ul.filters li svg{
 
   .program-break{
     width: 200px;
-    box-shadow: 0 3px 14px 0px rgba(0, 0, 0, 0.15);
     margin-bottom: 1em;
   }
  .event-time{
@@ -468,12 +474,14 @@ ul.filters li svg{
     width: 45%;
     margin: 1em 0.5em;
     justify-content: left;
+    max-width: 100%;
   }
 
   .program-row.top-time,
   .program-row.side-hour.bottom-time{
     margin: 0;
   }
+
 
 }
 

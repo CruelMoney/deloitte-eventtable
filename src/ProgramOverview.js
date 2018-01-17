@@ -39,7 +39,7 @@ class Event extends Component {
               icons[topic[0]]
             } */}
             {type==="workshop" ?
-            <span className="participants-only">Participants only</span>
+            <span className="participants-only">By invitation only</span>
             : null}
       </div>
     );
@@ -48,7 +48,7 @@ class Event extends Component {
 
 class ProgramBreak extends Component {
   render() {
-    const { 
+    const {
       start_time,
       end_time
     } = this.props;
@@ -81,7 +81,8 @@ class ProgramRow extends Component {
       lastRow
      } = this.props; 
     const isBreak = !events;
-    
+    const eventsCount = isBreak ? 0 : events.length;
+
     // Calculating side hour
     //const medianDate = getMedianDate(start_time, end_time);
     const overlappedHours = getOverlappedHours(start_time, end_time)
@@ -95,7 +96,14 @@ class ProgramRow extends Component {
 
 
     return(
-      <div className={"row-wrapper " + (collapse ? "collapsed" : "")}>
+      <div 
+        className={"row-wrapper" 
+        + (collapse ? " collapsed" : "")
+        + (eventsCount > 1 ? " multiple-events" : "")
+      } 
+        data-events-count={eventsCount} 
+        
+        >
       
       
            <div  
@@ -207,9 +215,7 @@ class Filters extends Component {
                 </input>
                 <label htmlFor={o+"-"+idx}>{o}</label>
               </div>
-              {
-                icons[o]
-              }
+             
             </li>
           );
         })}
@@ -267,16 +273,15 @@ class ProgramOverview extends Component {
     return (
       <div>
          <div>
-           <h2>Topic themes</h2>
+           <h3>Topic themes</h3>
           <Filters 
             onChange={(val)=>{this.filterChange(filterAttr2, val)}}
             name={filterAttr2}
             options={topics}
           />
         </div>
-        <hr/>
         <div>
-          <h2>Categories</h2>
+          <h3>Categories</h3>
           <Filters 
             onChange={(val)=>{this.filterChange(filterAttr1, val)}}
             name={filterAttr1}
@@ -302,7 +307,7 @@ class ProgramOverview extends Component {
 const filterEvents = (events, filters) => {
   return events.map( event => {
     
-    return Object.keys(filters).reduce((event, attribute) => {
+    return (Object.keys(filters)).reduce((event, attribute) => {
       if (event.hidden) return event;
       const filterValues = filters[attribute];
       const haveCommonValues = filterValues.some(v1 => event[attribute].indexOf(v1) !== -1);
