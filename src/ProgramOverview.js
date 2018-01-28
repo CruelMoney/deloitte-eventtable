@@ -5,6 +5,7 @@ import {
   Business,
   Both
 } from './icons'
+import { StickyContainer, Sticky } from 'react-sticky';
 
 const icons = {
   "Both IT and Business": <Both />,
@@ -271,23 +272,11 @@ class ProgramOverview extends Component {
     renderRows = calculateExtraTimes(renderRows); 
   
     return (
-      <div>
-         <div>
-           <h3>Topic themes</h3>
-          <Filters 
-            onChange={(val)=>{this.filterChange(filterAttr2, val)}}
-            name={filterAttr2}
-            options={topics}
-          />
-        </div>
-        <div>
-          <h3>Categories</h3>
-          <Filters 
-            onChange={(val)=>{this.filterChange(filterAttr1, val)}}
-            name={filterAttr1}
-            options={categories}
-          />
-        </div>
+      <StickyContainer>
+
+      <div className="row">
+      <div className="spacer"></div>
+      <div className="col-sm-8">
       <div className="program-overview">
         {renderRows.map((r, idx)=>{
           return (
@@ -300,6 +289,35 @@ class ProgramOverview extends Component {
         })}
       </div>
       </div>
+     
+      <div className="col-sm-4 filters-wrapper"> 
+
+          <Sticky topOffset={-50}>
+          { ({ isSticky, wasSticky, style, distanceFromTop, distanceFromBottom, calculatedHeight }) =>   
+          <div style={{...style, top: "90px"}} >
+            <h3>Filter by topic/category</h3>
+            <hr/>
+            <Filters 
+              onChange={(val)=>{this.filterChange(filterAttr2, val)}}
+              name={filterAttr2}
+              options={topics}
+            />
+            <hr/>
+            <Filters 
+              onChange={(val)=>{this.filterChange(filterAttr1, val)}}
+              name={filterAttr1}
+              options={categories}
+            />
+            <hr/>
+            </div>
+          }
+         
+          </Sticky>
+        </div>
+
+      </div>
+      </StickyContainer>
+
     );
   }
 };

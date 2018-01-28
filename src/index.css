@@ -1,8 +1,11 @@
 
 
 .program-overview{
-  margin-top: 2em;
   font-size: 0.8888em;
+}
+.program-overview .spacer{
+  margin-top: 0.35em;
+  margin-bottom: 0.35em;
 }
 .row-wrapper{
   position: relative;
@@ -27,7 +30,7 @@
 }
 .program-row.collapsed .thumbnail-wrapper.hidden{
   opacity: 1;
-  width: 16.666% !important;
+  width: 25% !important;
 }
 .program-row.collapsed .thumbnail-wrapper.Congress.hidden{
   width: 100% !important;
@@ -102,7 +105,7 @@
 
 .thumbnail-wrapper{
   position: relative;
-  width: 16.6666%;
+  width: 25%;
   padding: 0 2px;
   box-sizing: border-box;
   transition: width 500ms ease, opacity 500ms ease;
@@ -254,7 +257,9 @@
   margin-left: 0;
 }
 
-
+.filters-wrapper{
+  padding-left: 1em;
+}
 
 ul.filters{
   list-style: none;
@@ -263,12 +268,11 @@ ul.filters{
   display: flex;
   justify-content: left;
   flex-wrap: wrap;
-  margin: 1em 0 !important;
+  margin: 0.5em 0 0.5em !important
 }
 
 ul.filters li{
   margin: 1em;
-  margin-right: 2em;
   height: 2em;
   display: flex;
   justify-content: left;
@@ -276,6 +280,7 @@ ul.filters li{
   position: relative;
   max-width: 8.6em;
   margin-left: 0;
+  width: 43%;
 }
 
 ul.filters li svg{

@@ -169,74 +169,6 @@ export default [{
     "timezone": "UTC"
   }
 }, {
-  "name": "Workshop 1",
-  "link": null,
-  "scene": ["Blomstersalen"],
-  "categories": [],
-  "topic": [],
-  "thumbnail": null,
-  "start_time": {
-    "date": "2018-03-01 10:30:00.000000",
-    "timezone_type": 3,
-    "timezone": "UTC"
-  },
-  "end_time": {
-    "date": "2018-03-01 11:00:00.000000",
-    "timezone_type": 3,
-    "timezone": "UTC"
-  }
-}, {
-  "name": "Workshop 2",
-  "link": null,
-  "scene": ["Ballonsalen"],
-  "categories": [],
-  "topic": [],
-  "thumbnail": null,
-  "start_time": {
-    "date": "2018-03-01 10:30:00.000000",
-    "timezone_type": 3,
-    "timezone": "UTC"
-  },
-  "end_time": {
-    "date": "2018-03-01 11:00:00.000000",
-    "timezone_type": 3,
-    "timezone": "UTC"
-  }
-}, {
-  "name": "Workshop 1 Continued",
-  "link": null,
-  "scene": ["Blomstersalen"],
-  "categories": [],
-  "topic": [],
-  "thumbnail": null,
-  "start_time": {
-    "date": "2018-03-01 11:10:00.000000",
-    "timezone_type": 3,
-    "timezone": "UTC"
-  },
-  "end_time": {
-    "date": "2018-03-01 11:50:00.000000",
-    "timezone_type": 3,
-    "timezone": "UTC"
-  }
-}, {
-  "name": "Workshop 2 Continued",
-  "link": null,
-  "scene": ["Ballonsalen"],
-  "categories": [],
-  "topic": [],
-  "thumbnail": null,
-  "start_time": {
-    "date": "2018-03-01 11:10:00.000000",
-    "timezone_type": 3,
-    "timezone": "UTC"
-  },
-  "end_time": {
-    "date": "2018-03-01 11:50:00.000000",
-    "timezone_type": 3,
-    "timezone": "UTC"
-  }
-}, {
   "name": "Nathan Furr",
   "link": "\/program\/openingshow-copenhagen-drummers",
   "scene": ["Pjerrot"],
@@ -356,40 +288,6 @@ export default [{
     "timezone": "UTC"
   }
 }, {
-  "name": "Workshop 3",
-  "link": null,
-  "scene": ["Blomstersalen"],
-  "categories": [],
-  "topic": [],
-  "thumbnail": null,
-  "start_time": {
-    "date": "2018-03-01 13:00:00.000000",
-    "timezone_type": 3,
-    "timezone": "UTC"
-  },
-  "end_time": {
-    "date": "2018-03-01 13:30:00.000000",
-    "timezone_type": 3,
-    "timezone": "UTC"
-  }
-}, {
-  "name": "Workshop 4",
-  "link": null,
-  "scene": ["Ballonsalen"],
-  "categories": ["Robotics & cognitive automation"],
-  "topic": ["IT\/technology"],
-  "thumbnail": null,
-  "start_time": {
-    "date": "2018-03-01 13:00:00.000000",
-    "timezone_type": 3,
-    "timezone": "UTC"
-  },
-  "end_time": {
-    "date": "2018-03-01 13:30:00.000000",
-    "timezone_type": 3,
-    "timezone": "UTC"
-  }
-}, {
   "name": "Lone F\u00f8nss",
   "link": "\/digitalagenda-dk\/anders-dons-2",
   "scene": ["Vandsalen"],
@@ -446,40 +344,6 @@ export default [{
   "scene": ["Harlekin"],
   "categories": ["Emerging technologies"],
   "topic": ["Business\/strategy"],
-  "thumbnail": null,
-  "start_time": {
-    "date": "2018-03-01 13:40:00.000000",
-    "timezone_type": 3,
-    "timezone": "UTC"
-  },
-  "end_time": {
-    "date": "2018-03-01 14:10:00.000000",
-    "timezone_type": 3,
-    "timezone": "UTC"
-  }
-}, {
-  "name": "Workshop 3 Continued",
-  "link": null,
-  "scene": ["Blomstersalen"],
-  "categories": ["Robotics & cognitive automation"],
-  "topic": ["Business\/strategy"],
-  "thumbnail": null,
-  "start_time": {
-    "date": "2018-03-01 13:40:00.000000",
-    "timezone_type": 3,
-    "timezone": "UTC"
-  },
-  "end_time": {
-    "date": "2018-03-01 14:10:00.000000",
-    "timezone_type": 3,
-    "timezone": "UTC"
-  }
-}, {
-  "name": "Workshop 4 Continued",
-  "link": null,
-  "scene": ["Ballonsalen"],
-  "categories": ["Digital business models & transformation"],
-  "topic": ["Both IT and Business"],
   "thumbnail": null,
   "start_time": {
     "date": "2018-03-01 13:40:00.000000",
@@ -556,40 +420,6 @@ export default [{
     "timezone": "UTC"
   }
 }, {
-  "name": "Workshop 5",
-  "link": null,
-  "scene": ["Blomstersalen"],
-  "categories": ["Robotics & cognitive automation"],
-  "topic": ["Business\/strategy"],
-  "thumbnail": null,
-  "start_time": {
-    "date": "2018-03-01 14:30:00.000000",
-    "timezone_type": 3,
-    "timezone": "UTC"
-  },
-  "end_time": {
-    "date": "2018-03-01 15:00:00.000000",
-    "timezone_type": 3,
-    "timezone": "UTC"
-  }
-}, {
-  "name": "Workshop 6",
-  "link": null,
-  "scene": ["Ballonsalen"],
-  "categories": ["Digital business models & transformation"],
-  "topic": ["IT\/technology"],
-  "thumbnail": null,
-  "start_time": {
-    "date": "2018-03-01 14:30:00.000000",
-    "timezone_type": 3,
-    "timezone": "UTC"
-  },
-  "end_time": {
-    "date": "2018-03-01 15:00:00.000000",
-    "timezone_type": 3,
-    "timezone": "UTC"
-  }
-}, {
   "name": "AirHelp",
   "link": null,
   "scene": ["Vandsalen"],
@@ -653,41 +483,7 @@ export default [{
     "timezone_type": 3,
     "timezone": "UTC"
   }
-}, {
-  "name": "Workshop 5 Continued",
-  "link": null,
-  "scene": ["Blomstersalen"],
-  "categories": ["Robotics & cognitive automation"],
-  "topic": ["Business\/strategy"],
-  "thumbnail": null,
-  "start_time": {
-    "date": "2018-03-01 15:10:00.000000",
-    "timezone_type": 3,
-    "timezone": "UTC"
-  },
-  "end_time": {
-    "date": "2018-03-01 15:40:00.000000",
-    "timezone_type": 3,
-    "timezone": "UTC"
-  }
-}, {
-  "name": "Workshop 6 Continued",
-  "link": null,
-  "scene": ["Ballonsalen"],
-  "categories": ["Robotics & cognitive automation"],
-  "topic": ["Both IT and Business"],
-  "thumbnail": null,
-  "start_time": {
-    "date": "2018-03-01 15:10:00.000000",
-    "timezone_type": 3,
-    "timezone": "UTC"
-  },
-  "end_time": {
-    "date": "2018-03-01 15:40:00.000000",
-    "timezone_type": 3,
-    "timezone": "UTC"
-  }
-}, {
+},  {
   "name": "Keynote - Soulaima Gourani",
   "link": "\/digitalagenda-dk\/anders-dons-2-2",
   "scene": ["Congress"],
