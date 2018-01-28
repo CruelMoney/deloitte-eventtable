@@ -101,7 +101,7 @@ class ProgramRow extends Component {
         className={"row-wrapper" 
         + (collapse ? " collapsed" : "")
         + (eventsCount > 1 ? " multiple-events" : "")
-      } 
+        } 
         data-events-count={eventsCount} 
         
         >
@@ -122,14 +122,16 @@ class ProgramRow extends Component {
         }}
         >
       
-       {top_time ?
+       {!isBreak ?
          <div  
          style={{top: 0 }}
          className="side-hour top-time">
            <u>{addLeadingZero(start_time.getHours()) + ':' + addLeadingZero(start_time.getMinutes())}</u>
          </div>
       : null}
-      {overlappedHours.map(date => {
+
+     {/* The hours that the event time is overlapping. Example: (09:30 - 12:30) -> 10:00, 11:00, 12:00 */}
+      {/* {overlappedHours.map(date => {
         date.setMinutes(0,0,0);
         if(date < start_time || date >= end_time) return null
         const sideHourOffset = msToEms(date - start_time);
@@ -144,7 +146,7 @@ class ProgramRow extends Component {
             </div>
         )
       }) 
-      }
+      } */}
       {bottom_time || lastRow ?
          <div  
          style={{bottom: 0 }}
@@ -225,12 +227,37 @@ class Filters extends Component {
   }
 }
 
+class Scenes extends Component {
+
+  render() {
+    const { scenes, name } = this.props;
+
+    return (
+      <ul className="filters scenes-filters">
+        {scenes.map((o, idx)=>{
+          return(
+          
+            <li key={"scene-"+idx}>
+              <div className="filter-option">
+                <span className={o}></span>
+                <label>{o}</label>
+              </div>
+             
+            </li>
+          );
+        })}
+      </ul>
+    );
+  }
+}
+
 
 class ProgramOverview extends Component {
   state = {
     rows: [],
     events : [],
-    filters: {}
+    filters: {},
+    filterMenu: false
   }
 
   filterChange = (name, val) => {
@@ -259,6 +286,12 @@ class ProgramOverview extends Component {
     });
   }
 
+  toggleMenu = () => {
+    const {filterMenu} = this.state;
+    this.setState({
+      filterMenu: !filterMenu
+    })
+  }
 
   render() {
     const { rows, events, filters } = this.state;
@@ -267,16 +300,38 @@ class ProgramOverview extends Component {
     const filterAttr2 = "topic";
     const topics = mapToUnique(events, filterAttr2);
 
+    const scenes = mapToUnique(events, 'scene')
+
     let renderRows =  filterRows(rows, filters);
     renderRows = collapseBreaks(renderRows);
     renderRows = calculateExtraTimes(renderRows); 
   
+    const screenWidth = window.innerWidth;
     return (
       <StickyContainer>
 
+{/* Mobile filter menu button */}
+{screenWidth > 992 ? null :
+
+  <Sticky topOffset={-85}>
+  { ({ isSticky, wasSticky, style, distanceFromTop, distanceFromBottom, calculatedHeight }) =>  { 
+    return(
+    <div
+    onClick={this.toggleMenu} 
+    style={{...style, top: `${85+Number(style.top)}px`}}
+    className="mobile-filters-button">
+      <h3>{this.state.filterMenu ? "-" : "+"} Filter by topic/category</h3>
+    </div>
+    )}
+  }
+  </Sticky>
+
+}
+    <div className={`${this.state.filterMenu && "active"} fade-background`} ></div>
+
       <div className="row">
       <div className="spacer"></div>
-      <div className="col-sm-8">
+      <div className="col-md-8 col-xs">
       <div className="program-overview">
         {renderRows.map((r, idx)=>{
           return (
@@ -290,11 +345,16 @@ class ProgramOverview extends Component {
       </div>
       </div>
      
-      <div className="col-sm-4 filters-wrapper"> 
+      <div className={`col-md-4 filters-wrapper ${this.state.filterMenu && 'active'}`}> 
 
           <Sticky topOffset={-50}>
-          { ({ isSticky, wasSticky, style, distanceFromTop, distanceFromBottom, calculatedHeight }) =>   
-          <div style={{...style, top: "90px"}} >
+          { ({ isSticky, wasSticky, style, distanceFromTop, distanceFromBottom, calculatedHeight }) =>  { 
+          return(
+          <div style={
+            screenWidth > 992 
+              ? {...style, top: `${90+Number(style.top)}px`, paddingBottom: '90px'}
+              : null
+            } >
             <h3>Filter by topic/category</h3>
             <hr/>
             <Filters 
@@ -309,8 +369,9 @@ class ProgramOverview extends Component {
               options={categories}
             />
             <hr/>
-            </div>
-          }
+            <Scenes scenes={scenes}/>
+            </div>)
+          }}
          
           </Sticky>
         </div>

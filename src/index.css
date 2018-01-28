@@ -213,31 +213,37 @@
 .Congress{
   order: 1;
 }
-.Congress .event-thumbnail{
+.Congress .event-thumbnail,
+span.Congress{
   border: solid 1px #e1e2e3;
 }
+
 .Vandsalen{
   order: 2;
 }
-.Vandsalen .event-thumbnail{
+.Vandsalen .event-thumbnail,
+span.Vandsalen{
   background-color: #86F200;
 }
 .Pjerrot{
   order: 3;
 }
-.Pjerrot .event-thumbnail{
+.Pjerrot .event-thumbnail,
+span.Pjerrot{
   background-color: #3EFAC4;
 }
 .Columbine{
   order: 4;
 }
-.Columbine .event-thumbnail{
+.Columbine .event-thumbnail,
+span.Columbine{
   background-color: #34F0FF;
 }
 .Harlekin{
   order: 5;
 }
-.Harlekin .event-thumbnail{
+.Harlekin .event-thumbnail,
+span.Harlekin{
   background-color: #FDD300;
 }
 .Blomstersalen{
@@ -249,7 +255,8 @@
 .workshop{
   margin-left: auto;
 }
-.workshop .event-thumbnail{
+.workshop .event-thumbnail,
+span.workshop{
   background-color: #e1e2e3;
 }
 
@@ -300,10 +307,10 @@ ul.filters li svg{
   position: absolute;
   left: -9999px;
 }
-[type="checkbox"]:not(:checked) + label,
-[type="checkbox"]:checked + label {
+.filters-wrapper label,
+.filters-wrapper + label {
   position: relative;
-  padding-left: 3.5em;
+  padding-left: 2.8em;
   /* margin-left: -3.5em; */
   /* right: -3.5em; */
   display: block;
@@ -368,9 +375,56 @@ ul.filters li svg{
 [type="checkbox"]:disabled + label {
   color: #aaa;
 }
+.scenes-filters label{
+  cursor: default;
+}
+.scenes-filters span{
+  border-radius: 50%;
+  height: 1em;
+  width: 1em;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+}
 
+.mobile-filters-button{
+  cursor: pointer;
+  background-color: white;
+  padding: 1em 0;
+  z-index: 3;
+}
+.mobile-filters-button:after,
+.mobile-filters-button:before{
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  top: 0;
+  background: white;
+}
+.mobile-filters-button:after{
+  right: -50%;
+}
+.mobile-filters-button:before{
+  left: -50%;
+}
 
-
+.fade-background{
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: black;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 250ms ease;
+}
+.fade-background.active{
+  opacity: 0.7;
+}
 
 
 @media (max-width: 1200px) {
@@ -386,7 +440,6 @@ ul.filters li svg{
 /* MOBILE STYLE */
 @media (max-width: 62em) {
   .program-overview{
-    margin-top: 2em;
     font-size: 16px;
   }
   
@@ -485,6 +538,35 @@ ul.filters li svg{
   .program-row.top-time,
   .program-row.side-hour.bottom-time{
     margin: 0;
+  }
+
+  .filters-wrapper{
+    padding-left: 1em;
+    position: fixed;
+    top: 6.1em;
+    background: white;
+    display: block;
+    width: 80vw;
+    height: calc(100vh - 3.1em);
+    overflow: scroll;
+    min-width: 320px;
+    padding: 1em;
+    left: 0;
+    z-index: 2;
+    box-sizing: border-box;
+    transform: translateX(-100%);
+    transition: transform 250ms ease;
+    padding: 3.1em 1em;
+  }
+  .filters-wrapper > div > div{
+    padding-bottom: 0 !important;
+  }
+  .filters-wrapper h3{
+    display: none;
+  }
+
+  .filters-wrapper.active{
+    transform: none;
   }
 
 
