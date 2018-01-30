@@ -126,7 +126,7 @@ class ProgramRow extends Component {
          <div  
          style={{top: 0 }}
          className="side-hour top-time">
-           <u>{addLeadingZero(start_time.getHours()) + ':' + addLeadingZero(start_time.getMinutes())}</u>
+           {addLeadingZero(start_time.getHours()) + ':' + addLeadingZero(start_time.getMinutes())}
          </div>
       : null}
 
@@ -142,7 +142,7 @@ class ProgramRow extends Component {
               top: sideHourOffset+'em'
             }}
             className="side-hour middle-time">
-              <u>{sideHour+":00"}</u>
+              {sideHour+":00"}
             </div>
         )
       }) 
@@ -151,7 +151,7 @@ class ProgramRow extends Component {
          <div  
          style={{bottom: 0 }}
          className="side-hour bottom-time">
-            <u>{addLeadingZero(end_time.getHours()) + ':' + addLeadingZero(end_time.getMinutes())}</u>
+            {addLeadingZero(end_time.getHours()) + ':' + addLeadingZero(end_time.getMinutes())}
          </div>
       : null}
       {isBreak ? 
@@ -253,6 +253,8 @@ class Scenes extends Component {
 
 
 class ProgramOverview extends Component {
+  topNode = null;
+
   state = {
     rows: [],
     events : [],
@@ -267,6 +269,17 @@ class ProgramOverview extends Component {
         [name] : val
       }
     });
+    
+    const scrollTop = this.topNode.getBoundingClientRect().top;
+    const bodyTop = document.body.getBoundingClientRect().top;
+    
+    window.scrollTo({
+      top: scrollTop - bodyTop - 70, 
+      left: 0, 
+      behavior: 'smooth' 
+    });
+    
+
   }
 
   componentWillMount(){
@@ -299,6 +312,7 @@ class ProgramOverview extends Component {
     const categories = mapToUnique(events, filterAttr1);
     const filterAttr2 = "topic";
     const topics = mapToUnique(events, filterAttr2);
+    const {filterMenu} = this.state;
 
     const scenes = mapToUnique(events, 'scene')
 
@@ -308,17 +322,25 @@ class ProgramOverview extends Component {
   
     const screenWidth = window.innerWidth;
     return (
-      <StickyContainer>
+      <StickyContainer 
+      ref={(r)=>{
+        if(!!r){
+          this.topNode = r.node;
+        }
+      }}>
 
 {/* Mobile filter menu button */}
 {screenWidth > 992 ? null :
 
-  <Sticky topOffset={-85}>
+  <Sticky topOffset={screenWidth < 768 ? -85 : -75}>
   { ({ isSticky, wasSticky, style, distanceFromTop, distanceFromBottom, calculatedHeight }) =>  { 
     return(
     <div
     onClick={this.toggleMenu} 
-    style={{...style, top: `${85+Number(style.top)}px`}}
+    style={{...style, 
+      top: `${(screenWidth < 768 ? 85 : 75) + Number(style.top)}px`,
+      position: filterMenu ? 'fixed' : style.position
+    }}
     className="mobile-filters-button">
       <h3>{this.state.filterMenu ? "-" : "+"} Filter by topic/category</h3>
     </div>
@@ -331,7 +353,14 @@ class ProgramOverview extends Component {
 
       <div className="row">
       <div className="spacer"></div>
-      <div className="col-md-8 col-xs">
+      <div 
+      className={`${this.state.filterMenu && "slide-out-active"} slide-out col-md-8 col-xs`}
+      onClick={()=>{
+        this.setState({
+          filterMenu: false
+        })
+      }}
+      >
       <div className="program-overview">
         {renderRows.map((r, idx)=>{
           return (
@@ -357,12 +386,7 @@ class ProgramOverview extends Component {
             } >
             <h3>Filter by topic/category</h3>
             <hr/>
-            <Filters 
-              onChange={(val)=>{this.filterChange(filterAttr2, val)}}
-              name={filterAttr2}
-              options={topics}
-            />
-            <hr/>
+           
             <Filters 
               onChange={(val)=>{this.filterChange(filterAttr1, val)}}
               name={filterAttr1}
